@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Сладости:</h3>
+<!--css перевести на классы!!!-->
+<table class="table">
+    <thead>
+        <tr>
+            <td>Название сладости:
+            <td>Стоимость:   
+    </thead>
+    <tbody>
+    {% for i in res %}
+        <tr style="cursor: pointer;" onclick="moreInfo({{ i }})">
+            <td >{{ i[2] }}</td>
+            <td>{{ i[3] }}</td>
+        </tr>        
+    {% endfor %}
+    </tbody>
+</table>
+
+<table id="more" style="display: none;" class="table">
+    <thead>
+        <tr>
+            <td>Имя:
+            <td>Цена:
+            <td>Вес:
+            <td>Сахар:
+            <td>Холодильник:
+            <td>Дата производства:
+            <td>Срок годности:
+        </tr>
+    </thead>
+    <tbody id="more_info">
+
+    </tbody>
+
+</table>
+<div style="display: none;" class="add_sweets">
+    <label  class="label" for="name">Введите название сладости:</label>
+    <input class="input" type="text" id="name" placeholder="Введите имя" name="name"><br>
+
+    <label class="label"  for="cost">Введите цену:</label>
+    <input  class="input" type="text" id="cost" placeholder="Введите цену" name="cost"><br>
+
+    <label class="label"  for="weight">Введите вес:</label>
+    <input class="input" type="text" id="weight" placeholder="Введите вес" name="weight"><br>
+
+    <label class="label"  for="production_date">Выберите дату производства:</label>
+    <input class="input" type="date" id="production_date" name="production_date"><br>
+
+    <label class="label"  for="expiration_date">Выберите дату срока годности:</label>
+    <input class="input" type="date" id="expiration_date" name="expiration_date"><br>
+
+    <div class="radio" id="with_sugar">
+        <p>Содержит сахар да/нет</p>
+        <br><label class="label-r"  for="with_sugar_true">Да</label>
+        <input class="input-r" type="radio" id="with_sugar_true" name="sugar" value="1">
+
+        <label class="label-r" for="with_sugar_false">Нет</label>
+        <input class="input-r" type="radio" id="with_sugar_false" name="sugar" value="0">
+    </div>
+    <div class="radio" id="requires_freezing">
+        <p>Нужен холодильник да/нет</p>
+        <label class="label-r" for="requires_freezing_true">Да</label>
+        <input class="input-r" type="radio" id="requires_freezing_true" name="freezing" value="1">
+
+        <label class="label-r"  for="requires_freezing_false">Нет</label>
+        <input class="input-r" type="radio" id="requires_freezing_false" name="freezing" value="0">
+    </div>
+
+    <div class="radio" id="manufacturer">
+        
+    </div>
+    <div class="radio" id="sweets_type">
+
+    </div>
+    <button onclick="sweets_add()">Внести данные</button>
+    <button id="clear_sweets" onclick="clear_sweets()">Очистить поле</button>
+
+</div>
+
+<button id="show_sweets" onclick="sweetsInfo()">Добавить сладости:</button>
+<button id="hidn_sweets" onclick="hidn_sweets()" style="display: none;">Скрыть поле</button>
+
+<script>
+    let sw_type = new Array()
+    let mn_type = new Array()
+    function sweetsInfo() {
+        $.ajax({
+            url: "/sweetsInfo",
+            method: 'GET',
+            success: function(response){
+                sw_type = response['sw_type']
+                mn_type = response['mn_type']
+                // console.log(sw_type, mn_type)
+                let html_sw = '<p>Выберите тип сладости</p>'
+                let html_mn = '<p>Выберите место производство</p>'
+                for (let i=0; sw_type.length>i; i++){
+                    // console.log(sw_type[i])
+                    html_sw+= '<input class="input-r" type = "radio" id="sw_'+sw_type[i]['id']+'" name="sweets_type" value="'+sw_type[i]['id']+'"><label class="label-r" for="'+sw_type[i]['id']+'">'+sw_type[i]['name']+'</label>'
+                }
+                for (let i=0; mn_type.length>i; i++){
+                    // console.log(mn_type[i])
+                    html_mn += '<input class="input-r" type="radio" id="mn_'+mn_type[i]['id']+'" name="mn_type" value="'+mn_type[i]['id']+'"<label class="label-r" for="'+mn_type[i]['id']+'">'+mn_type[i]['name']+'</label>'
+                }
+                $('#hidn_sweets').show()
+                $('#show_sweets').hide()
+                $('#sweets_type').html(html_sw)
+                $('#manufacturer').html(html_mn)
+                $('.add_sweets').show()
+            }
+        })
+    }
+
+    function hidn_sweets() {
+        $('#hidn_sweets').hide()
+        $('#show_sweets').show()
+        $('.add_sweets').hide()
+        
+    }
+
+    function clear_sweets() {
+        $('input').val('');
+        $('input[type="radio"]').prop('checked', false)
+    //     var inputElements = document.getElementsByTagName("input");
+    // for (var i = 0; i < inputElements.length; i++) {
+    // if (inputElements[i].type === "text" || inputElements[i].type === "number" || inputElements[i].type === "email" || inputElements[i].type === "password" || inputElements[i].type === "date" ) {
+    //     inputElements[i].value = "";
+    // } else if (inputElements[i].type === "radio") {
+    //     inputElements[i].checked = false;
+    // }
+    // }
+    }
+
+    async function sweets_add(){
+        if ($('#name').val().length>0 && $('#cost').val().length>0 && $('#weight').val().length>0 && $('#production_date').val().length>0 && $('#expiration_date').val().length>0 && $("input[type=radio][name=sugar]:checked").val().length>0 && $("input[type=radio][name=freezing]:checked").val().length>0 && $("input[type=radio][name=sweets_type]:checked").val().length>0 && $("input[type=radio][name=mn_type]:checked").val().length>0) {
+            try {
+                const resp = await $.ajax({
+                url:'/add_sweets',
+                method: 'POST',
+                data: {'name':$('#name').val(), 'cost':$('#cost').val(), 'weight':$('#weight').val(), 'production_date':$('#production_date').val(), 'expiration_date':$('#expiration_date').val(), 'with_sugar':$("input[type=radio][name=sugar]:checked").val(), 'requires_freezing':$("input[type=radio][name=freezing]:checked").val(), 'sweets_types_id':$("input[type=radio][name=sweets_type]:checked").val(), 'manufacturer_id':$("input[type=radio][name=mn_type]:checked").val()},
+                // contentType: 'application/json'
+                });
+                console.log(resp);
+            } catch (error) {
+                console.error(error)
+            }
+        }
+    }
+
+
+
+
+
+    // async function sweets_add() {
+    //     if ($('#name').val().length>0 && $('#cost').val().length>0 && $('#weight').val().length>0 && $('#production_date').val().length>0 && $('#expiration_date').val().length>0 && $("input[type=radio][name=sugar]:checked").val().length>0 && $("input[type=radio][name=freezing]:checked").val().length>0 && $("input[type=radio][name=sweets_type]:checked").val().length>0 && $("input[type=radio][name=mn_type]:checked").val().length>0) {
+    //                 $.ajax({
+    //             url:'/add_sweets',
+    //             method: 'POST',
+    //             data: {'name':$('#name').val(), 'cost':$('#cost').val(), 'weight':$('#weight').val(), 'production_date':$('#production_date').val(), 'expiration_date':$('#expiration_date').val(), 'with_sugar':$("input[type=radio][name=sugar]:checked").val(), 'requires_freezing':$("input[type=radio][name=freezing]:checked").val(), 'sweets_types_id':$("input[type=radio][name=sweets_type]:checked").val(), 'manufacturer_id':$("input[type=radio][name=mn_type]:checked").val()},
+    //             success:function(response){
+    //                 console.log(response)
+    //                 if (response['error'].length>0){
+    //                     $('#error').html('')
+    //                     $('#error').html(response['error'])
+    //                     $('#errors').show()
+    //                 } else if (response['res'].length>0) {
+    //                     $('.add_sweets').hide()
+    //                     $('#success').html('Успешно добавлено')
+    //                     $('.info').show()
+    //                 } else {
+    //                     console.log('else')
+    //                 }
+                    
+    //             }
+    //         })
+    //     }else{
+    //         console.error('НЕТ')
+    //     }
+    // }
+
+    function moreInfo(inf) {
+        $('#more_info').html('')
+        // console.log(inf.lenght)
+        // let html = ''
+        // for (let i=0; inf.length> i; i++){
+        let html ='<tr><td>'+inf[2]+'<td>'+inf[3]+'<td>'+inf[4]+'<td>'+inf[6]+'<td>'+inf[7]+'<td>'+inf[8]+'<td>'+inf[9]+''
+        // }
+        $('#more_info').html(html)
+        $('#more').show()
+
+        
+    }
+
+</script>
+
+{% endblock %}
+
