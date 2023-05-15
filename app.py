@@ -84,10 +84,21 @@ async def add_sweets(request):
         return web.json_response({'error': error, 'res': res})
     data = {'error': error, 'res': res}
     return web.json_response(data)
-        
 
-    
-    
+
+
+@aiohttp_jinja2.template("manufacturers.html")
+async def manufacturers_main():
+    title = "Производство"
+    errors = []
+    res = []
+    try:
+        res = await app_db.select(Manufacturers)
+    except Exception as e:
+        errors.append(e)
+    return {'title':title, 'errors':errors, 'res': res}
+
+
 
     
     
