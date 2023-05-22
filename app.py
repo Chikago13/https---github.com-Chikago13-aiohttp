@@ -86,31 +86,20 @@ async def add_sweets(request):
     return web.json_response(data)
 
 
-
 @aiohttp_jinja2.template("manufacturers.html")
-async def manufacturers_main():
+async def manufacturers(request):
     title = "Производство"
     errors = []
     res = []
+    if request.method == 'POST':
+        data = await request.post()
+        res = await app_db.add(Manufacturers, **data)
     try:
         res = await app_db.select(Manufacturers)
+        # print(res)
     except Exception as e:
         errors.append(e)
     return {'title':title, 'errors':errors, 'res': res}
-
-
-
-    
-    
-
-
-
-
-
-
-
-
-
 
 
 
@@ -120,6 +109,8 @@ app.add_routes([web.get('/', home, name='home')])
 app.add_routes([web.get('/sweets', sweets, name='sweets')])
 app.add_routes([web.get('/sweetsInfo', sweetsInfo, name='sweetsInfo')])
 app.add_routes([web.post('/add_sweets', add_sweets, name='add_sweets')])
+app.add_routes([web.get('/manufacturers', manufacturers, name='manufacturers')])
+app.add_routes([web.post('/manufacturers', manufacturers, name='manufacturers')])
 app.router.add_static("/static/", path="static", name="static")
 
 if __name__ == '__main__':

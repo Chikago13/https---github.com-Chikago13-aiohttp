@@ -65,6 +65,9 @@
 	bottom: 0;
 } */
 
+.mn_table {
+	margin-bottom: 1rem;
+}
 
 .add_sweets {
 	margin-bottom: 1rem;
@@ -96,7 +99,7 @@
 
 
 
-.radio:first-of-type {
+radio:first-of-type {
 	display: flex;
 	align-items: flex-start;
 	margin-bottom: 5px;
@@ -127,9 +130,11 @@
 
 .input-r:checked {
 	border: 6px solid black;
-}
+} 
 
-button,
+
+
+/* button,
 legend {
 	font-weight: 700;
 	color: white;
@@ -146,5 +151,38 @@ legend {
 .button7:active {
 background: rgb(135, 136, 135);
 box-shadow: 0 3px rgb(135, 136, 135) inset;
+}  */
+
+
+
+input[type=submit]{
+	width: 200px;
+	/* position: absolute; */
+	left: 50px;
+	top: 50%;
+	bottom: 50px;
+	background: rgb(120, 122, 122);
+	color: #fff;
+	font-family: tahoma,geneva,algerian;
+	height: 50px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border: 1px solid #999;
 }
+
+button {
+	width: 200px;
+	left: 50px;
+	top: 50%;
+	bottom: 50px;
+	background: rgb(120, 122, 122);
+	color: #fff;
+	font-family: tahoma,geneva,algerian;
+	height: 50px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border: 1px solid #999;
+} 
 

@@ -1,4 +1,5 @@
 import datetime, json
+import re
 
 
 
@@ -48,3 +49,7 @@ class Utils:
             return None
 
 
+    async def phone(self, phone):
+        p = r"^(\\7|8)(\d{3})(\d{7})"
+        res = re.search(p, phone)
+        return res

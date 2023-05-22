@@ -2,4 +2,102 @@
 
 
 
-{% block content %}{% endblock %}
+{% block content %}
+<h3>Производство:</h3>
+<table  id="manuf" class="table">
+    <thead>
+        <tr>
+            <td>Название производства:
+            <td>Адрес:   
+    </thead>
+    <tbody>
+    {% for i in res %}
+        <tr style="cursor: pointer;" onclick='more_manuf("{{ i }}")'>
+            <td >{{ i[1] }}</td>
+            <td>{{ i[3] }}</td>
+        </tr>        
+    {% endfor %}
+    </tbody>
+</table>
+
+<table id="mn_more" style="display: none;" class="table">
+    <thead>
+        <tr>
+            <td>Имя:
+            <td>Телефон:
+            <td>Адрес:
+            <td>Город:
+            <td>Строна:
+        </tr>
+    </thead>
+    <tbody id="mn_info">
+        
+    <button function="show_form" >Добавть производство</button><br>
+
+    <form style="display: none;" action="manufacturers" method="post" class="mn_table">
+
+
+        <br><label for="name" class="label-r" >Введите имя</label>
+        <input id="mn_name" name="name" class="input"  >
+
+        <label for="phone" class="label-r" >Введите телефон</label>
+        <input id="mn_phone" name="phone" class="input" >
+
+        <label for="adress" class="label-r" >Введите адрес</label>
+        <input id="mn_adress" name="adress"  class="input" >
+
+        <label for="city" class="label-r" >Введите город</label>
+        <input id="mn_city" name="city" class="input" >
+
+        <label for="country" class="label-r" >Введите страну</label>
+        <input id="mn_country" name="country" class="input"  ><br>
+    
+        <input type="submit" value="Внести данные" >
+
+        
+    </form>
+    
+</tbody>
+
+<!-- <button id="hidn_mn" class="container" onclick="hidn_mn()">Скрыть поле</button> -->
+
+    
+    
+<script>
+        
+function more_manuf(res){
+    console.log(res)
+    res = res.split(',')
+    let html = '<tr><td>'+res[1]+'<td>'+ res[2]+'<td>'+res[3]+'<td>'+res[4]+'<td>'+res[5]+''
+        $('#mn_info').html(html)
+        $('#mn_more').show()  
+}
+
+function show_form(){
+    $('#mn_show').toggle()
+    $('#hidn_mn').hide()
+}
+                
+
+
+// async function mn_add(){
+//     if ($('#mn_name').val().length>0 && $('#mn_phone').val().length>0 && $('#mn_adress').val().length>0 && $('#mn_city').val().length>0 && $('#mn_country').val().length>0) {
+//         try {
+//             const resp =await $.ajax({
+//                 url:'/manufacturers',
+//                 method: 'POST',
+//                 data: {'name':$('#mn_name').val(), 'phone':$('#mn_phone').val(), 'adress':$('#mn_adress').val(), 'city':$('#mn_city').val(), 'country':$('#mn_country').val()},
+//             });
+//             console.log(resp);
+//         } catch (error) {
+//             console.error(error)
+//         }
+//     }
+// }
+
+
+
+
+</script>
+
+{% endblock %}
