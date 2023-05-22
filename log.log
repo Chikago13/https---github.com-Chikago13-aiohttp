@@ -1991,3 +1991,946 @@ INFO:aiohttp.access:127.0.0.1 [22/May/2023:17:35:06 +0000] "GET /static/css/main
 INFO:aiohttp.access:127.0.0.1 [22/May/2023:17:35:08 +0000] "GET /manufacturers HTTP/1.1" 200 8308 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
 INFO:aiohttp.access:127.0.0.1 [22/May/2023:17:35:44 +0000] "POST /manufacturers HTTP/1.1" 200 6855 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
 INFO:aiohttp.access:127.0.0.1 [22/May/2023:17:36:05 +0000] "GET /manufacturers HTTP/1.1" 200 6457 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:40 +0000] "GET /manufacturers HTTP/1.1" 200 7539 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:40 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:40 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:40 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('29',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:48 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('29',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:50 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('29',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:51 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '29' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('29',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:46:51 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('2',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:47:05 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:47:41 +0000] "GET /manufacturers HTTP/1.1" 200 7539 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:47:41 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:47:41 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:47:41 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('2',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:47:44 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('2',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:48:07 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('2',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:49:33 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 168, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 206, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 111, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/./codecs/int.pyx", line 54, in asyncpg.pgproto.pgproto.int4_encode
+TypeError: 'str' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 442, in _prepare_and_execute
+    self._rows = await prepared_stmt.fetch(*parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 183, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 197, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 109, in del_man
+    res = await app_db.delete(Manufacturers, mn_id)
+  File "/home/alex/python/aiohttp/aiohttp/detabase.py", line 31, in delete
+    obj = await session.execute(f'delete from {model.__tablename__} where id=:id returning id', {"id": id})
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 215, in execute
+    result = await greenlet_spawn(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/home/alex/.local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2' ('str' object cannot be interpreted as an integer)
+[SQL: delete from manufacturers where id=%s returning id]
+[parameters: ('2',)]
+(Background on this error at: https://sqlalche.me/e/14/dbapi)
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:50:07 +0000] "POST /del_man HTTP/1.1" 500 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:52:47 +0000] "GET /manufacturers HTTP/1.1" 200 7539 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:52:47 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:52:47 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:52:47 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:52:49 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:53:39 +0000] "GET /manufacturers HTTP/1.1" 200 7013 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:53:39 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:53:39 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:53:39 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:54:11 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:55:24 +0000] "GET /manufacturers HTTP/1.1" 200 6577 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:55:24 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:55:24 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:55:24 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:55:27 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:57:01 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:58:35 +0000] "GET /manufacturers HTTP/1.1" 200 5596 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:58:36 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:58:36 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:58:36 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:58:42 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:39 +0000] "GET /manufacturers HTTP/1.1" 200 5130 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:39 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:39 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:39 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:45 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:50 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:55 +0000] "GET /manufacturers HTTP/1.1" 200 4638 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:55 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:55 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:18:59:55 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:04:04 +0000] "POST /manufacturers HTTP/1.1" 200 5099 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:04:28 +0000] "POST /manufacturers HTTP/1.1" 200 5540 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:04:42 +0000] "POST /manufacturers HTTP/1.1" 200 6001 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:04:59 +0000] "POST /manufacturers HTTP/1.1" 200 6436 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:19 +0000] "POST /manufacturers HTTP/1.1" 200 6871 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:19 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:19 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:19 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:23 +0000] "POST /manufacturers HTTP/1.1" 200 7306 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:33 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:34 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:38 +0000] "POST /manufacturers HTTP/1.1" 200 7306 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:58 +0000] "POST /manufacturers HTTP/1.1" 200 7763 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:59 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:59 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:05:59 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:06 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:06 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:06 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:07 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:07 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:07 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:07 +0000] "POST /del_man HTTP/1.1" 200 271 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:49 +0000] "GET / HTTP/1.1" 200 1115 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:50 +0000] "GET /manufacturers HTTP/1.1" 200 7328 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:06:53 +0000] "POST /del_man HTTP/1.1" 200 265 "http://0.0.0.0:8080/manufacturers" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+INFO:aiohttp.access:127.0.0.1 [22/May/2023:19:07:00 +0000] "GET /manufacturers HTTP/1.1" 200 6893 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0"
+ERROR:asyncio:Fatal error on SSL transport
+protocol: <asyncio.sslproto.SSLProtocol object at 0x7f8813c5f400>
+transport: <_SelectorSocketTransport closing fd=11>
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/asyncio/selector_events.py", line 916, in write
+    n = self._sock.send(data)
+OSError: [Errno 9] Bad file descriptor
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/asyncio/sslproto.py", line 690, in _process_write_backlog
+    self._transport.write(chunk)
+  File "/usr/lib/python3.10/asyncio/selector_events.py", line 922, in write
+    self._fatal_error(exc, 'Fatal write error on socket transport')
+  File "/usr/lib/python3.10/asyncio/selector_events.py", line 717, in _fatal_error
+    self._force_close(exc)
+  File "/usr/lib/python3.10/asyncio/selector_events.py", line 729, in _force_close
+    self._loop.call_soon(self._call_connection_lost, exc)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 750, in call_soon
+    self._check_closed()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 515, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed

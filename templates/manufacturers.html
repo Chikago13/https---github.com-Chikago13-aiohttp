@@ -9,12 +9,14 @@
         <tr>
             <td>Название производства:
             <td>Адрес:   
+            <td>Действие</td>
     </thead>
     <tbody>
     {% for i in res %}
-        <tr style="cursor: pointer;" onclick='more_manuf("{{ i }}")'>
+        <tr id="{{i[0]}}" style="cursor: pointer;" onclick='more_manuf("{{ i }}")'>
             <td >{{ i[1] }}</td>
             <td>{{ i[3] }}</td>
+            <td><button id="del" onclick="delet_mn({{i[0]}})">Удаление</button></td>
         </tr>        
     {% endfor %}
     </tbody>
@@ -54,6 +56,7 @@
     
         <input type="submit" value="Внести данные" >
 
+
         
     </form>
     
@@ -66,11 +69,27 @@
 <script>
         
 function more_manuf(res){
-    console.log(res)
     res = res.split(',')
     let html = '<tr><td>'+res[1]+'<td>'+ res[2]+'<td>'+res[3]+'<td>'+res[4]+'<td>'+res[5]+''
         $('#mn_info').html(html)
         $('#mn_more').show()  
+}
+
+function delet_mn(man_id){
+    $.ajax({
+        method: 'post',
+        url: '/del_man',
+        data: {'man_id': man_id},
+        success: function(res){
+            if (res['error'].lenght == 0) {
+                $('#'+man_id).remove()
+                $('')
+            } else {
+                $('#error').html(res['error'])
+                $('#errors').show()
+            }
+        }
+    })
 }
 
 function show_form(){

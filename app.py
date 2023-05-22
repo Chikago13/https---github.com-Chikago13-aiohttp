@@ -101,6 +101,20 @@ async def manufacturers(request):
         errors.append(e)
     return {'title':title, 'errors':errors, 'res': res}
 
+async def del_man(request):
+    if request.method == 'POST':
+        data = await request.post()
+        mn_id = data['man_id']
+        if mn_id:
+            res = await app_db.delete(Manufacturers, int(mn_id))
+            if res:
+                return web.json_response({'succes': 'Запись удалена', 'error':''})
+            else:
+                return web.json_response({ 'succes': '','error':'Ошибка удаления'})
+        return web.json_response({ 'succes': '','error':'Некоректное id'})
+    return web.json_response({ 'succes': '','error':'Method not error'})
+    
+
 
 
 
@@ -111,6 +125,7 @@ app.add_routes([web.get('/sweetsInfo', sweetsInfo, name='sweetsInfo')])
 app.add_routes([web.post('/add_sweets', add_sweets, name='add_sweets')])
 app.add_routes([web.get('/manufacturers', manufacturers, name='manufacturers')])
 app.add_routes([web.post('/manufacturers', manufacturers, name='manufacturers')])
+app.add_routes([web.post('/del_man', del_man, name='del_man')])
 app.router.add_static("/static/", path="static", name="static")
 
 if __name__ == '__main__':
