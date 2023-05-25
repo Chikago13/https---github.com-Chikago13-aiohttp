@@ -17,6 +17,7 @@
             <td >{{ i[1] }}</td>
             <td>{{ i[3] }}</td>
             <td><button id="del" onclick="delet_mn({{i[0]}})">Удаление</button></td>
+            <td><button id="update" onclick='update_mn("{{i}}")'>Изменить</button></td>
         </tr>        
     {% endfor %}
     </tbody>
@@ -34,31 +35,54 @@
     </thead>
     <tbody id="mn_info">
         
-    <button function="show_form" >Добавть производство</button><br>
+    <button  onclick="show_form()">Добавть производство</button><br>
 
-    <form style="display: none;" action="manufacturers" method="post" class="mn_table">
-
-
-        <br><label for="name" class="label-r" >Введите имя</label>
-        <input id="mn_name" name="name" class="input"  >
-
-        <label for="phone" class="label-r" >Введите телефон</label>
-        <input id="mn_phone" name="phone" class="input" >
-
-        <label for="adress" class="label-r" >Введите адрес</label>
-        <input id="mn_adress" name="adress"  class="input" >
-
-        <label for="city" class="label-r" >Введите город</label>
-        <input id="mn_city" name="city" class="input" >
-
-        <label for="country" class="label-r" >Введите страну</label>
-        <input id="mn_country" name="country" class="input"  ><br>
-    
-        <input type="submit" value="Внести данные" >
+    <div id="div_mn" style="display: none;">
+        <form  action="manufacturers" method="post" class="mn_table">
 
 
+            <br><label for="name" class="label-r" >Введите имя</label>
+            <input id="mn_name" name="name" class="input"  >
+
+            <label for="phone" class="label-r" >Введите телефон</label>
+            <input id="mn_phone" name="phone" class="input" >
+
+            <label for="adress" class="label-r" >Введите адрес</label>
+            <input id="mn_adress" name="adress"  class="input" >
+
+            <label for="city" class="label-r" >Введите город</label>
+            <input id="mn_city" name="city" class="input" >
+
+            <label for="country" class="label-r" >Введите страну</label>
+            <input id="mn_country" name="country" class="input"  ><br>
         
-    </form>
+            <input type="submit" value="Внести данные" >
+
+        </form>
+
+    </div>
+
+    <div id="div_mn_m" class="div_mn_m" style="display: none;">
+        <br><label for="name" class="label-r" >Введите имя</label>
+        <input id="mn_name_m" name="name" class="input">
+        
+        <label for="phone" class="label-r" >Введите телефон</label>
+        <input id="mn_phone_m" name="phone" class="input">
+        
+        <label for="adress" class="label-r" >Введите адрес</label>
+        <input id="mn_adress_m" name="adress"  class="input" >
+        
+        <label for="city" class="label-r" >Введите город</label>
+        <input id="mn_city_m" name="city" class="input">
+        
+        <label for="country" class="label-r" >Введите страну</label>
+        <input id="mn_country_m" name="country" class="input" ><br>
+
+        <td><button id="update_mn_m" onclick="update_mn_up()">Изменить</button></td>
+
+
+    </div>
+
     
 </tbody>
 
@@ -69,8 +93,9 @@
 <script>
         
 function more_manuf(res){
-    res = res.split(',')
-    let html = '<tr><td>'+res[1]+'<td>'+ res[2]+'<td>'+res[3]+'<td>'+res[4]+'<td>'+res[5]+''
+    // res = res.split(',')
+    res = res.split("'").join("").replace("(", '').replace(")", '').split(',')
+    let html = '<tr><td>'+res[1]+'<td>'+ res[2]+'<td>'+res[3]+res[4]+res[5]+'<td>'+res[6]+'<td>'+res[7]+''
         $('#mn_info').html(html)
         $('#mn_more').show()  
 }
@@ -81,9 +106,8 @@ function delet_mn(man_id){
         url: '/del_man',
         data: {'man_id': man_id},
         success: function(res){
-            if (res['error'].lenght == 0) {
-                $('#'+man_id).remove()
-                $('')
+            if (!res['error']) {
+                $('#'+man_id).remove() 
             } else {
                 $('#error').html(res['error'])
                 $('#errors').show()
@@ -92,11 +116,40 @@ function delet_mn(man_id){
     })
 }
 
-function show_form(){
-    $('#mn_show').toggle()
-    $('#hidn_mn').hide()
+// function update_mn_up(){
+//     if 
+// }
+
+
+function update_mn(i){
+    console.log(i)
+    i = i.split("'").join("").replace("(", '').replace(")", '').split(',');
+    $('#mn_name_m').attr('mn_id', i[0])
+    $('#mn_name_m').attr('value', i[1])
+    $('#mn_phone_m').attr('value', i[2])
+    $('#mn_adress_m').attr('value', i[3]+i[4]+i[5])
+    $('#mn_city_m').attr('value', i[6])
+    $('#mn_country_m').attr('value', i[7])
+    $('#div_mn_m').show()
+    // console.log($('#mn_name_m').attr('mn_id'))
+    // data = {'id':$('#mn_name_m').attr('mn_id'), 'name':$('#mn_name_m').val(), 'phone':$('#mn_phone_m').val(), 'adress':$('#mn_adress_m').val(), 'city':$('#mn_city_m').val(), 'country':$('#mn_country_m').val()}
+    try {
+        const resp = $.ajax({
+        method: 'post',
+        url: '/update_mn',
+        data: {'id':$('#mn_name_m').attr('mn_id'), 'name':$('#mn_name_m').val(), 'phone':$('#mn_phone_m').val(), 'adress':$('#mn_adress_m').val(), 'city':$('#mn_city_m').val(), 'country':$('#mn_country_m').val()}
+    }); 
+    console.log(resp)
+    } catch (error){
+        console.error(error)
+    }
+
 }
-                
+
+function show_form(){
+    $('#div_mn').toggle()
+}
+        
 
 
 // async function mn_add(){
