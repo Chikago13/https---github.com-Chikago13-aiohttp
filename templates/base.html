@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <script src="{{ url('static', filename='jquery-3.6.4.min.js.js')}}"></script>
+    <script src="{{ url('static', filename='notify.min.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url ( 'static', filename='css/main.css')}}"> 
     <div id="errors" style="display: none;">
     {% if errors %}
@@ -22,8 +23,8 @@
             <li> <a href = "{{ url('home') }}">Главная строница</a></li>
             <li> <a href = "{{ url('sweets' )}}">Sweets</a></li>
             <li> <a href = "{{ url('manufacturers' )}}">Manufacturers</a></li>
-            <li> <a href = "#">Storehouses</a></li>
-            <li> <a href = "#">SweetsTypes</a></li>
+            <li> <a href = "{{ url('storehouses' )}}">Storehouses</a></li>
+            <li> <a href = "{{ url('sweets_types' )}}">SweetsTypes</a></li>
         </ul>
     </nav>
 </head>

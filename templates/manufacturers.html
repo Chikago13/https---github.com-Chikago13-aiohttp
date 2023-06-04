@@ -9,13 +9,13 @@
         <tr>
             <td>Название производства:
             <td>Адрес:   
-            <td>Действие</td>
+            <td colspan="2">Действие</td>
     </thead>
     <tbody>
     {% for i in res %}
         <tr id="{{i[0]}}" style="cursor: pointer;" onclick='more_manuf("{{ i }}")'>
-            <td >{{ i[1] }}</td>
-            <td>{{ i[3] }}</td>
+            <td id="name_{{i[0]}}">{{ i[1] }}</td>
+            <td id="adress_{{i[0]}}">{{ i[3] }}</td>
             <td><button id="del" onclick="delet_mn({{i[0]}})">Удаление</button></td>
             <td><button id="update" onclick='update_mn("{{i}}")'>Изменить</button></td>
         </tr>        
@@ -78,11 +78,13 @@
         <label for="country" class="label-r" >Введите страну</label>
         <input id="mn_country_m" name="country" class="input" ><br>
 
-        <td><button id="update_mn_m" onclick="update_mn_up()">Изменить</button></td>
+        <button id="update_mn_m" onclick="update_mn_up()">Изменить</button>
 
+        <button onclick="update_mn_bt()">Внести изменения</button>
 
     </div>
-
+    <div>
+    </div>
     
 </tbody>
 
@@ -95,9 +97,10 @@
 function more_manuf(res){
     // res = res.split(',')
     res = res.split("'").join("").replace("(", '').replace(")", '').split(',')
-    let html = '<tr><td>'+res[1]+'<td>'+ res[2]+'<td>'+res[3]+res[4]+res[5]+'<td>'+res[6]+'<td>'+res[7]+''
+    console.log(res)
+    let html = '<tr><td>'+res[1].trim()+'<td>'+ res[2].trim()+'<td>'+res[3].trim()+res[4].trim()+', '+res[5].trim()+'<td>'+res[6].trim()+'<td>'+res[7].trim()+'</tbody></table>'
         $('#mn_info').html(html)
-        $('#mn_more').show()  
+        $('#mn_more').show()
 }
 
 function delet_mn(man_id){
@@ -116,34 +119,45 @@ function delet_mn(man_id){
     })
 }
 
-// function update_mn_up(){
-//     if 
-// }
+
 
 
 function update_mn(i){
-    console.log(i)
     i = i.split("'").join("").replace("(", '').replace(")", '').split(',');
-    $('#mn_name_m').attr('mn_id', i[0])
-    $('#mn_name_m').attr('value', i[1])
-    $('#mn_phone_m').attr('value', i[2])
-    $('#mn_adress_m').attr('value', i[3]+i[4]+i[5])
-    $('#mn_city_m').attr('value', i[6])
-    $('#mn_country_m').attr('value', i[7])
+    $('#mn_name_m').attr('mn_id', i[0].trim())
+    $('#mn_name_m').attr('value', i[1].trim())
+    $('#mn_phone_m').attr('value', i[2].trim())
+    $('#mn_adress_m').attr('value', i[3].trim()+', '+i[4].trim()+', '+i[5].trim())
+    $('#mn_city_m').attr('value', i[6].trim())
+    $('#mn_country_m').attr('value', i[7].trim())
     $('#div_mn_m').show()
-    // console.log($('#mn_name_m').attr('mn_id'))
-    // data = {'id':$('#mn_name_m').attr('mn_id'), 'name':$('#mn_name_m').val(), 'phone':$('#mn_phone_m').val(), 'adress':$('#mn_adress_m').val(), 'city':$('#mn_city_m').val(), 'country':$('#mn_country_m').val()}
-    try {
-        const resp = $.ajax({
+    
+}
+
+function update_mn_bt(){
+    console.log(typeof $('#mn_name_m').attr('mn_id'))
+    if($('#mn_name_m').attr('mn_id')>0 && $('#mn_name_m').attr('mn_id'), $('#mn_name_m').val().length>0 && $('#mn_phone_m').val().length>0 && $('#mn_adress_m').val().length>0 && $('#mn_city_m').val().length>0 && $('#mn_country_m').val().length>0) {
+    $.ajax({
         method: 'post',
         url: '/update_mn',
-        data: {'id':$('#mn_name_m').attr('mn_id'), 'name':$('#mn_name_m').val(), 'phone':$('#mn_phone_m').val(), 'adress':$('#mn_adress_m').val(), 'city':$('#mn_city_m').val(), 'country':$('#mn_country_m').val()}
-    }); 
-    console.log(resp)
-    } catch (error){
-        console.error(error)
-    }
+        data: {'id':$('#mn_name_m').attr('mn_id'), 'name':$('#mn_name_m').val(), 'phone':$('#mn_phone_m').val(), 'adress':$('#mn_adress_m').val(), 'city':$('#mn_city_m').val(), 'country':$('#mn_country_m').val()},
+        success: function(res){
+        if (res['error'].length >0){
+            $('#error').html((''))
+            $('#error').html(res['error'])
+            $('#errors').show()
+        }
+        if (res['res']>0){
+            $.notify("Изменения произошли", "success")
+            $('#div_mn_m').hide()
+            $('#name_'+res['res']).html($('#mn_name_m').val())
+            $('#adress_'+res['res']).html($('#mn_adress_m').val())
+            $('#mn_info').html('<tr><td>'+$('#mn_name_m').val()+'<td>'+$('#mn_phone_m').val()+'<td>'+$('#mn_adress_m').val()+'<td>'+$('#mn_city_m').val()+'<td>'+$('#mn_country_m').val()+'</tbody></tabel>')
+        }
 
+}
+    }); 
+    } 
 }
 
 function show_form(){

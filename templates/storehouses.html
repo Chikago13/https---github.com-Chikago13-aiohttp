@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h3>Склады:</h3>
+<table  id="store" class="table">
+    <thead>
+        <tr>
+            <td>Название склада:
+            <td>Адрес:   
+            <td colspan="2">Действие</td>
+    </thead>
+    <tbody>
+    {% for i in res %}
+        <tr id="{{i[0]}}" style="cursor: pointer;" onclick='more_store("{{ i }}")'>
+            <td id="name_st{{i[0]}}">{{ i[1] }}</td>
+            <td id="adress_st{{i[0]}}">{{ i[3] }}</td>
+            <td><button id="del_st" onclick="delet_st({{i[0]}})">Удаление</button></td>
+            <td><button id="update_st" onclick='update_st("{{i}}")'>Изменить</button></td>
+        </tr>        
+    {% endfor %}
+    </tbody>
+</table>
+
+<table id="st_more" style="display: none;" class="table">
+    <thead>
+        <tr>
+            <td>Имя:
+            <td>Адрес:
+            <td>Город:
+            <td>Строна:
+        </tr>
+    </thead>
+    <tbody id="st_info">
+        
+    <button  onclick="show_form_st()">Добавть склад</button><br>
+
+    <div id="div_st" style="display: none;">
+        <form  action="storehouses" method="post" class="st_table">
+
+
+            <br><label for="name" class="label-r" >Введите название саклада</label>
+            <input id="st_name" name="name" class="input"  >
+
+            <label for="adress" class="label-r" >Введите адрес</label>
+            <input id="st_adress" name="adress"  class="input" >
+
+            <label for="city" class="label-r" >Введите город</label>
+            <input id="st_city" name="city" class="input" >
+
+            <label for="country" class="label-r" >Введите страну</label>
+            <input id="st_country" name="country" class="input"  ><br>
+        
+            <input type="submit" value="Внести данные" >
+
+        </form>
+
+    </div>
+
+    <div id="div_st_st" class="div_st_st" style="display: none;">
+        <br><label for="name" class="label-r" >Введите название саклада</label>
+        <input id="st_name_st" name="name" class="input">
+        
+        <label for="adress" class="label-r" >Введите адрес</label>
+        <input id="st_adress_st" name="adress"  class="input" >
+        
+        <label for="city" class="label-r" >Введите город</label>
+        <input id="st_city_st" name="city" class="input">
+        
+        <label for="country" class="label-r" >Введите страну</label>
+        <input id="st_country_st" name="country" class="input" ><br>
+
+        <button id="update_st" onclick="update_st_up()">Изменить</button>
+
+        <button onclick="update_st_bt()">Внести изменения</button>
+
+    </div>
+
+</tbody>    
+    
+<script>
+        
+function more_store(res){
+    // res = res.split('"').join("").split(',')
+    res = res.split("'").join("").replace("(", '').replace(")", '').split(',')
+    console.log(res)
+    let html = '<tr><td>'+res[1].trim()+' '+res[2].trim()+res[3].trim()+res[4].trim()+res[5].trim()+'<td>'+res[6].trim()+'<td>'+ res[7].trim()+'<td>'+'</tbody></table>'
+        $('#st_info').html(html)
+        $('#st_more').show()
+}
+
+function delet_st(st_id){
+    $.ajax({
+        method: 'post',
+        url: '/del_st',
+        data: {'st_id': st_id},
+        success: function(res){
+            if (!res['error']) {
+                $('#'+st_id).remove() 
+            } else {
+                $('#error').html(res['error'])
+                $('#errors').show()
+            }
+        }
+    })
+}
+
+function update_st(i){
+    i = i.split("'").join("").replace("(", '').replace(")", '').split(',');
+    console.log(i)
+    $('#st_name_st').attr('st_id', i[0].trim())
+    $('#st_name_st').attr('value', i[1].trim())
+    $('#st_adress_st').attr('value', i[2].trim()+', '+i[3].trim()+', '+i[4].trim()+i[5].trim())
+    $('#st_city_st').attr('value', i[6].trim())
+    $('#st_country_st').attr('value', i[7].trim())
+    $('#div_st_st').show()
+    
+}
+
+function update_st_bt(){
+    console.log(typeof $('#st_name_st').attr('st_id'))
+    if($('#st_name_st').attr('st_id')>0 && $('#st_name_st').val().length>0 && $('#st_adress_st').val().length>0 && $('#st_city_st').val().length>0 && $('#st_country_st').val().length>0) {
+    $.ajax({
+        method: 'post',
+        url: '/update_st',
+        data: {'id':$('#st_name_st').attr('st_id'), 'name':$('#st_name_st').val(), 'adress':$('#st_adress_st').val(), 'city':$('#st_city_st').val(), 'country':$('#st_country_st').val()},
+        success: function(res){
+        if (res['error'].length >0){
+            $('#error').html((''))
+            $('#error').html(res['error'])
+            $('#errors').show()
+        }
+        if (res['res']>0){
+            $.notify("Изменения произошли", "success")
+            $('#div_st_st').hide()
+            $('#name_st'+res['res']).html($('#st_name_st').val())
+            $('#adress_st'+res['res']).html($('#st_adress_st').val())
+            $('#st_info').html('<tr><td>'+$('#st_name_st').val()+'<td>'+$('#st_adress_st').val()+'<td>'+$('#st_city_st').val()+'<td>'+$('#st_country_st').val()+'</tbody></tabel>')
+        }
+
+}
+    }); 
+    } 
+}
+
+function show_form_st(){
+    $('#div_st').toggle()
+}
+
+
+
+</script>
+
+{% endblock %}

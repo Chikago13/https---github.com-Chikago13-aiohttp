@@ -47,6 +47,19 @@ class Utils:
             return False
         else:
             return None
+        
+    async def valid_dict(self, res):
+        for key, val in res.items():
+            if len(str(val)) == 0:
+                return False
+        return True
+    
+    async def is_int(self, res):
+        try:
+            res = int(res)
+            return True
+        except:
+            return False
 
 
     async def phone(self, phone):

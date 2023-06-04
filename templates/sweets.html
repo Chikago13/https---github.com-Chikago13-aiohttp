@@ -8,13 +8,17 @@
     <thead>
         <tr>
             <td>Название сладости:
-            <td>Стоимость:   
+            <td>Стоимость: 
+            <td colspan="2">Действие
+            
     </thead>
     <tbody>
     {% for i in res %}
-        <tr style="cursor: pointer;" onclick="moreInfo({{ i }})">
-            <td >{{ i[2] }}</td>
-            <td>{{ i[3] }}</td>
+        <tr id="tr_{{ i[0] }}" style="cursor: pointer;" onclick="moreInfo({{ i }})">
+            <td id="_name_{{i[0]}}">{{ i[2] }}</td>
+            <td id="cost_{{i[0]}}">{{ i[3] }}</td>
+            <td><button onclick="del_sw({{ i[0]}})">Удаление</button></td>
+            <td><button onclick="upd_sqw({{ i }})">Изменение</button></td>
         </tr>        
     {% endfor %}
     </tbody>
@@ -37,7 +41,7 @@
     </tbody>
 
 </table>
-<div style="display: none;" class="add_sweets">
+<div id ="div_sw" style="display: none;" class="add_sweets">
     <label  class="label" for="name">Введите название сладости:</label>
     <input class="input" type="text" id="name" placeholder="Введите имя" name="name"><br>
 
@@ -78,6 +82,7 @@
     </div>
     <button onclick="sweets_add()">Внести данные</button>
     <button id="clear_sweets" onclick="clear_sweets()">Очистить поле</button>
+    <button onclick="update_sw_bt()">Внести изменения</button>
 
 </div>
 
@@ -147,6 +152,69 @@
             } catch (error) {
                 console.error(error)
             }
+        }
+    }
+
+    function del_sw(id){
+        $.ajax({
+            url: '/del_sw',
+            method: 'POST',
+            data: {'id': id},
+            success: function (res){
+                if (res['error'].length>0){
+                    $.notify(res['error'], "error");     
+                }
+                if (res['res']>0){
+                    $.notify("Запись успешно удалена", "success");
+                    $('#tr_'+id).remove()
+                }
+            }
+        })
+    }
+
+    function upd_sqw(res){
+        console.log(res)
+        $('#name').attr('value', res[2])
+        $('#cost').attr('value', res[3])
+        $('#weight').attr('value', res[4])
+        if (res[6] == "Да"){
+            $('#with_sugar_true').attr('checked', true)
+        } else {
+            $('#with_sugar_false').attr('checked', true)
+        }
+        if (res[7] == 'Да'){
+            $('#requires_freezing_true').attr('checked', true)
+        } else {
+            $('#requires_freezing_false').attr('checked', true)
+        }
+        $('#production_date').attr('value', res[8])
+        $('#expiration_date').attr('value', res[9])
+        $('.add_sweets').show()
+    }
+
+    function update_sw_bt(){
+        console.log(typeof $('#name').attr('sw_id'))
+        if ($('#name').attr('sw_id')>0 && $('#name').val().length>0 && $('#cost').val().length>0 && $('#weight').val().length>0 && $('#production_date').val().length>0 && $('#expiration_date').val().length>0 && $("input[type=radio][name=sugar]:checked").val().length>0 && $("input[type=radio][name=freezing]:checked").val().length>0 && $("input[type=radio][name=sweets_type]:checked").val().length>0 && $("input[type=radio][name=mn_type]:checked").val().length>0){
+            $.ajax({
+                url: '/update_sw',
+                method: 'POST',
+                data:{'id':$('#name').attr('sw_id'), 'name':$('#name').val(), 'cost':$('#cost').val(), 'weight':$('#weight').val(), 'production_date':$('#production_date').val(), 'expiration_date':$('#expiration_date').val(), 'with_sugar':$("input[type=radio][name=sugar]:checked").val(), 'requires_freezing':$("input[type=radio][name=freezing]:checked").val(), 'sweets_types_id':$("input[type=radio][name=sweets_type]:checked").val(), 'manufacturer_id':$("input[type=radio][name=mn_type]:checked").val()},
+                success: function(res){
+        if (res['error'].length >0){
+            $('#error').html((''))
+            $('#error').html(res['error'])
+            $('#errors').show()
+        }
+        if (res['res']>0){
+            $.notify("Изменения произошли", "success")
+            $('.add_sweets').hide()
+            $('#_name_'+res['res']).html($('#name').val())
+            $('#cost_'+res['res']).html($('#cost').val())
+            // $('#more_info').html('<tr><td>'+$('#mn_name_m').val()+'<td>'+$('#mn_phone_m').val()+'<td>'+$('#mn_adress_m').val()+'<td>'+$('#mn_city_m').val()+'<td>'+$('#mn_country_m').val()+'</tbody></tabel>')
+        }
+
+        }
+            })
         }
     }
 

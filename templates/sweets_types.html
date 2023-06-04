@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h3>Виды сладости:</h3>
+<table  id="sw_type" class="table">
+    <thead>
+        <tr>
+            <td>Название сладости: 
+            <td colspan="2">Действие</td>
+    </thead>
+    <tbody>
+    {% for i in res %}
+        <tr id="{{i[0]}}" style="cursor: pointer;" onclick='more_swtype("{{ i }}")'>
+            <td id="name_swtype{{i[0]}}">{{ i[1] }}</td>
+            <td><button id="del_swtype" onclick="delet_swtype({{i[0]}})">Удаление</button></td>
+            <td><button id="update_swtype" onclick='update_swtype("{{i}}")'>Изменить</button></td>
+        </tr>        
+    {% endfor %}
+    </tbody>
+</table>
+
+<table id="swtype_more" style="display: none;" class="table">
+    <thead>
+        <tr>
+            <td>Название:
+        </tr>
+    </thead>
+    <tbody id="swtype_info">
+        
+    <button  onclick="show_form_swtype()">Добавть сладости</button><br>
+
+    <div id="div_swtype" style="display: none;">
+        <form  action="sweets_types" method="post" class="st_table">
+
+
+            <br><label for="name" class="label-r" >Введите название сладости</label>
+            <input id="swtype_name" name="name" class="input"  >
+        
+            <input type="submit" value="Внести данные" >
+
+        </form>
+
+    </div>
+
+    <div id="div_swtype_sw" class="div_swtype_sw" style="display: none;">
+        <br><label for="name" class="label-r" >Введите название сладости</label>
+        <input id="swtype_name_sw" name="name" class="input">
+        
+
+        <br><button id="update_swtype_up" onclick="update_swtype_up()">Изменить</button>
+
+        <button onclick="update_swtype_bt()">Внести изменения</button><br>
+
+    </div>
+
+</tbody>    
+    
+<script>
+        
+function more_swtype(res){
+    // res = res.split('"').join("").split(',')
+    res = res.split("'").join("").replace("(", '').replace(")", '').split(',')
+    console.log(res)
+    let html = '<tr><td>'+res[1].trim()+'<td>'+'</tbody></table>'
+        $('#swtype_info').html(html)
+        $('#swtype_more').show()
+}
+
+function delet_swtype(swtype_id){
+    $.ajax({
+        method: 'post',
+        url: '/del_swtype',
+        data: {'swtype_id': swtype_id},
+        success: function(res){
+            if (!res['error']) {
+                $('#'+swtype_id).remove() 
+            } else {
+                $('#error').html(res['error'])
+                $('#errors').show()
+            }
+        }
+    })
+}
+
+function update_swtype(i){
+    i = i.split("'").join("").replace("(", '').replace(")", '').split(',');
+    console.log(i)
+    $('#swtype_name_sw').attr('swtype_id', i[0].trim())
+    $('#swtype_name_sw').attr('value', i[1].trim())
+    $('#div_swtype_sw').show()
+    
+}
+
+function update_swtype_bt(){
+    console.log(typeof $('#swtype_name_sw').attr('swtype_id'))
+    if($('#swtype_name_sw').attr('swtype_id')>0 && $('#swtype_name_sw').val().length>0) {
+    $.ajax({
+        method: 'post',
+        url: '/update_swtype',
+        data: {'id':$('#swtype_name_sw').attr('swtype_id'), 'name':$('#swtype_name_sw').val()},
+        success: function(res){
+        if (res['error'].length >0){
+            $('#error').html((''))
+            $('#error').html(res['error'])
+            $('#errors').show()
+        }
+        if (res['res']>0){
+            $.notify("Изменения произошли", "success")
+            $('#div_swtype_sw').hide()
+            $('#name_swtype'+res['res']).html($('#swtype_name_sw').val())
+            $('#swtype_info').html('<tr><td>'+$('#swtype_name_sw').val()+'</tbody></tabel>')
+        }
+
+}
+    }); 
+    } 
+}
+
+function show_form_swtype(){
+    $('#div_swtype').toggle()
+}
+
+
+
+</script>
+
+{% endblock %}
