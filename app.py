@@ -66,18 +66,19 @@ async def add_sweets(request):
     if not data['cost'].isdigit() or not data['weight'].isdigit():
         error = 'Некоректный вес или цена'
         return web.json_response({'error': error, 'res': res})
-    try:
-        new_data = data.copy()
-        new_data['production_date'] = await utils.convert_today(data['production_date'])
-        new_data['expiration_date'] = await utils.convert_today(data['expiration_date'])
-        new_data['with_sugar'] = await utils.convert_bool(data['with_sugar'])
-        new_data['requires_freezing'] = await utils.convert_bool(data['requires_freezing'])
-        new_data['sweets_types_id'] = int(data['sweets_types_id'])
-        new_data['manufacturer_id'] = int(data['manufacturer_id'])
-    except Exception as e:
-        logging.error(e)
-        error = 'Некоректная дата'
-        return web.json_response({'error': error, 'res': res})
+    new_data = await utils.utils_sweets(data)
+    # try:
+    #     new_data = data.copy()
+    #     new_data['production_date'] = await utils.convert_today(data['production_date'])
+    #     new_data['expiration_date'] = await utils.convert_today(data['expiration_date'])
+    #     new_data['with_sugar'] = await utils.convert_bool(data['with_sugar'])
+    #     new_data['requires_freezing'] = await utils.convert_bool(data['requires_freezing'])
+    #     new_data['sweets_types_id'] = int(data['sweets_types_id'])
+    #     new_data['manufacturer_id'] = int(data['manufacturer_id'])
+    # except Exception as e:
+    #     logging.error(e)
+    #     error = 'Некоректная дата'
+    #     return web.json_response({'error': error, 'res': res})
     try:
         res = await app_db.add(Sweets, **new_data)
         if res.id:
@@ -116,16 +117,32 @@ async def del_sw(request):
 async def update_sw(request):
     error, res = '', ''
     if request.method == 'POST':
-        data = await request.post()
-        print(data)
-        if await utils.valid_dict(data):
-            try:
-                res = await app_db.update(Sweets, data['id'], **data)
-            except Exception as e:
-                error = e
-        else:
-            error = 'Неверные входные данные'
-        return web.json_response({'res': res, 'error': error})
+        data = dict(await request.post())
+    if not data['cost'].isdigit() or not data['weight'].isdigit():
+        error = 'Некоректный вес или цена'
+        return web.json_response({'error': error, 'res': res})
+    try:
+        new_data = data.copy()
+        new_data['production_date'] = await utils.convert_today(data['production_date'])
+        new_data['expiration_date'] = await utils.convert_today(data['expiration_date'])
+        new_data['with_sugar'] = await utils.convert_bool(data['with_sugar'])
+        new_data['requires_freezing'] = await utils.convert_bool(data['requires_freezing'])
+        new_data['sweets_types_id'] = int(data['sweets_types_id'])
+        new_data['manufacturer_id'] = int(data['manufacturer_id'])
+    except Exception as e:
+        logging.error(e)
+        error = 'Некоректная дата'
+        return web.json_response({'error': error, 'res': res})
+    if await utils.valid_dict(new_data):
+        try:
+            res = await app_db.update(model=Sweets, id=int(new_data['id']), name=new_data['name'], cost = new_data['cost'], weight = new_data['weight'], production_date = new_data['production_date'], expiration_date= new_data['expiration_date'], with_sugar = new_data['with_sugar'], requires_freezing= new_data['requires_freezing'], sweets_types_id = new_data['sweets_types_id'], manufacturer_id = new_data['manufacturer_id'])
+            logging.info(res)
+        except Exception as e:
+            logging.error(e)
+            error = 'Ошибка в добавлениеи'
+            return web.json_response({'error': error, 'res': res})
+        data = {'error': error, 'res': res}
+    return web.json_response(data)
 
 
 @aiohttp_jinja2.template("manufacturers.html")

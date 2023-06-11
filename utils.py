@@ -60,7 +60,21 @@ class Utils:
             return True
         except:
             return False
-
+        
+    async def utils_sweets(self, data):
+        error, res = '', ''
+        try:
+            new_data = data.copy()
+            new_data['production_date'] = await self.convert_today(data['production_date'])
+            new_data['expiration_date'] = await self.convert_today(data['expiration_date'])
+            new_data['with_sugar'] = await self.convert_bool(data['with_sugar'])
+            new_data['requires_freezing'] = await self.convert_bool(data['requires_freezing'])
+            new_data['sweets_types_id'] = int(data['sweets_types_id'])
+            new_data['manufacturer_id'] = int(data['manufacturer_id'])
+        except Exception as e:
+            e = 'Ошибка в добавлениеи'
+            return e
+        return new_data
 
     async def phone(self, phone):
         p = r"^(\\7|8)(\d{3})(\d{7})"

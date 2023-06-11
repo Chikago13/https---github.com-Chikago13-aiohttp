@@ -80,9 +80,9 @@
     <div class="radio" id="sweets_type">
 
     </div>
-    <button onclick="sweets_add()">Внести данные</button>
+    <button id="sw_add" onclick="sweets_add()">Внести данные</button>
     <button id="clear_sweets" onclick="clear_sweets()">Очистить поле</button>
-    <button onclick="update_sw_bt()">Внести изменения</button>
+    <button id="update_sw_bt" onclick="update_sw_bt()">Внести изменения</button>
 
 </div>
 
@@ -92,7 +92,7 @@
 <script>
     let sw_type = new Array()
     let mn_type = new Array()
-    function sweetsInfo() {
+    function sweetsInfo(check=false, sw_id_s =null, mn_id_m=null) {
         $.ajax({
             url: "/sweetsInfo",
             method: 'GET',
@@ -115,6 +115,11 @@
                 $('#sweets_type').html(html_sw)
                 $('#manufacturer').html(html_mn)
                 $('.add_sweets').show()
+                $('#update_sw_bt').toggle()
+                if (check){
+                    $('#sw_'+sw_id_s).attr('checked', true)
+                    $('#mn_'+mn_id_m).attr('checked', true)
+                }
             }
         })
     }
@@ -123,7 +128,6 @@
         $('#hidn_sweets').hide()
         $('#show_sweets').show()
         $('.add_sweets').hide()
-        
     }
 
     function clear_sweets() {
@@ -143,11 +147,11 @@
         if ($('#name').val().length>0 && $('#cost').val().length>0 && $('#weight').val().length>0 && $('#production_date').val().length>0 && $('#expiration_date').val().length>0 && $("input[type=radio][name=sugar]:checked").val().length>0 && $("input[type=radio][name=freezing]:checked").val().length>0 && $("input[type=radio][name=sweets_type]:checked").val().length>0 && $("input[type=radio][name=mn_type]:checked").val().length>0) {
             try {
                 const resp = await $.ajax({
-                url:'/add_sweets',
-                method: 'POST',
-                data: {'name':$('#name').val(), 'cost':$('#cost').val(), 'weight':$('#weight').val(), 'production_date':$('#production_date').val(), 'expiration_date':$('#expiration_date').val(), 'with_sugar':$("input[type=radio][name=sugar]:checked").val(), 'requires_freezing':$("input[type=radio][name=freezing]:checked").val(), 'sweets_types_id':$("input[type=radio][name=sweets_type]:checked").val(), 'manufacturer_id':$("input[type=radio][name=mn_type]:checked").val()},
-                // contentType: 'application/json'
-                });
+                    url:'/add_sweets',
+                    method: 'POST',
+                    data: {'name':$('#name').val(), 'cost':$('#cost').val(), 'weight':$('#weight').val(), 'production_date':$('#production_date').val(), 'expiration_date':$('#expiration_date').val(), 'with_sugar':$("input[type=radio][name=sugar]:checked").val(), 'requires_freezing':$("input[type=radio][name=freezing]:checked").val(), 'sweets_types_id':$("input[type=radio][name=sweets_type]:checked").val(), 'manufacturer_id':$("input[type=radio][name=mn_type]:checked").val()},
+                    // contentType: 'application/json'
+                }); 
                 console.log(resp);
             } catch (error) {
                 console.error(error)
@@ -172,8 +176,13 @@
         })
     }
 
-    function upd_sqw(res){
+    function upd_sqw(res, sw_id){
+        $('.add_sweets').show()
+        sweetsInfo(check=true, sw_id_s = res[1], mn_id_m = res[5]);
         console.log(res)
+        // $('#sw_'+res[1]).attr('checked', true)
+        // $('#mn_'+res[5]).attr('checked', true)
+        $('#name').attr('sw_id', res[0])
         $('#name').attr('value', res[2])
         $('#cost').attr('value', res[3])
         $('#weight').attr('value', res[4])
@@ -189,14 +198,23 @@
         }
         $('#production_date').attr('value', res[8])
         $('#expiration_date').attr('value', res[9])
-        $('.add_sweets').show()
+        $('#sw_add').hide()
+        console.log($('#mn_'+res[5]).val())
     }
+
+    function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
 
     function update_sw_bt(){
         console.log(typeof $('#name').attr('sw_id'))
         if ($('#name').attr('sw_id')>0 && $('#name').val().length>0 && $('#cost').val().length>0 && $('#weight').val().length>0 && $('#production_date').val().length>0 && $('#expiration_date').val().length>0 && $("input[type=radio][name=sugar]:checked").val().length>0 && $("input[type=radio][name=freezing]:checked").val().length>0 && $("input[type=radio][name=sweets_type]:checked").val().length>0 && $("input[type=radio][name=mn_type]:checked").val().length>0){
             $.ajax({
-                url: '/update_sw',
+                url: '/update_sw', 
                 method: 'POST',
                 data:{'id':$('#name').attr('sw_id'), 'name':$('#name').val(), 'cost':$('#cost').val(), 'weight':$('#weight').val(), 'production_date':$('#production_date').val(), 'expiration_date':$('#expiration_date').val(), 'with_sugar':$("input[type=radio][name=sugar]:checked").val(), 'requires_freezing':$("input[type=radio][name=freezing]:checked").val(), 'sweets_types_id':$("input[type=radio][name=sweets_type]:checked").val(), 'manufacturer_id':$("input[type=radio][name=mn_type]:checked").val()},
                 success: function(res){
@@ -211,8 +229,7 @@
             $('#_name_'+res['res']).html($('#name').val())
             $('#cost_'+res['res']).html($('#cost').val())
             // $('#more_info').html('<tr><td>'+$('#mn_name_m').val()+'<td>'+$('#mn_phone_m').val()+'<td>'+$('#mn_adress_m').val()+'<td>'+$('#mn_city_m').val()+'<td>'+$('#mn_country_m').val()+'</tbody></tabel>')
-        }
-
+            }
         }
             })
         }
@@ -258,8 +275,6 @@
         // }
         $('#more_info').html(html)
         $('#more').show()
-
-        
     }
 
 </script>
