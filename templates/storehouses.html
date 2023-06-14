@@ -37,7 +37,7 @@
     <button  onclick="show_form_st()">Добавть склад</button><br>
 
     <div id="div_st" style="display: none;">
-        <form  action="storehouses" method="post" class="st_table">
+        <!-- <form  action="storehouses" method="post" class="st_table"> -->
 
 
             <br><label for="name" class="label-r" >Введите название саклада</label>
@@ -51,13 +51,15 @@
 
             <label for="country" class="label-r" >Введите страну</label>
             <input id="st_country" name="country" class="input"  ><br>
-        
-            <input type="submit" value="Внести данные" >
 
-        </form>
+            <button id = "add_store" onclick="add_store()">Добавить</button>
+        
+            <!-- <input type="submit" value="Внести данные" > -->
+<!-- 
+        </form> -->
 
     </div>
-
+<!-- 
     <div id="div_st_st" class="div_st_st" style="display: none;">
         <br><label for="name" class="label-r" >Введите название саклада</label>
         <input id="st_name_st" name="name" class="input">
@@ -75,11 +77,29 @@
 
         <button onclick="update_st_bt()">Внести изменения</button>
 
-    </div>
+    </div> -->
 
 </tbody>    
     
 <script>
+
+function add_store(){
+    if ($('#st_name').val().length>0 && $('#st_adress').val().length>0 && $('#st_city').val().length>0 && $('#st_country').val().length>0){
+        $.ajax({
+            url: "/add_store",
+            method: 'POST',
+            data: {'name': $('#st_name').val(), 'adress': $('#st_adress').val(), 'city': $('#st_city').val(), 'country': $('#st_country').val()},
+            success: function(res){
+                if (res['error'].length= 0){
+                } 
+                if (res['res'] > 0){
+                    $.notify('Успешное добавление', 'success')
+                    $('#st_info').append('<tr><td>'+res[1]+'td>'+res[2]+'<td>'+res[3]+'<td>'+res[4]+'</td></tr>')
+                }
+            }
+        })
+    } else ($.notify("Не все поля заполнены", "error"))  
+}
         
 function more_store(res){
     // res = res.split('"').join("").split(',')

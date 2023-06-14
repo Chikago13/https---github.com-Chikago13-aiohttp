@@ -121,19 +121,12 @@ async def update_sw(request):
     if not data['cost'].isdigit() or not data['weight'].isdigit():
         error = 'Некоректный вес или цена'
         return web.json_response({'error': error, 'res': res})
-    try:
-        new_data = data.copy()
-        new_data['production_date'] = await utils.convert_today(data['production_date'])
-        new_data['expiration_date'] = await utils.convert_today(data['expiration_date'])
-        new_data['with_sugar'] = await utils.convert_bool(data['with_sugar'])
-        new_data['requires_freezing'] = await utils.convert_bool(data['requires_freezing'])
-        new_data['sweets_types_id'] = int(data['sweets_types_id'])
-        new_data['manufacturer_id'] = int(data['manufacturer_id'])
-    except Exception as e:
-        logging.error(e)
-        error = 'Некоректная дата'
-        return web.json_response({'error': error, 'res': res})
-    if await utils.valid_dict(new_data):
+    new_data = await utils.utils_sweets(data)
+    if isinstance(new_data, dict):
+        if await utils.check_man_day(new_data['production_date']):
+            return web.json_response({'error': 'Некорктная дата', 'res':res})
+        if not await utils.check_expir_date(new_data['production_date'], new_data['expiration_date']):
+            return web.json_response({'error': 'Некоректный срок годности', 'res':res})
         try:
             res = await app_db.update(model=Sweets, id=int(new_data['id']), name=new_data['name'], cost = new_data['cost'], weight = new_data['weight'], production_date = new_data['production_date'], expiration_date= new_data['expiration_date'], with_sugar = new_data['with_sugar'], requires_freezing= new_data['requires_freezing'], sweets_types_id = new_data['sweets_types_id'], manufacturer_id = new_data['manufacturer_id'])
             logging.info(res)
@@ -141,7 +134,10 @@ async def update_sw(request):
             logging.error(e)
             error = 'Ошибка в добавлениеи'
             return web.json_response({'error': error, 'res': res})
-        data = {'error': error, 'res': res}
+    else:
+        logging.error(new_data)
+        error = 'Обновление не прошло'
+    data = {'error': error, 'res': res}
     return web.json_response(data)
 
 
@@ -193,14 +189,29 @@ async def storehouses(request):
     title = "Склады"
     errors = []
     res = []
-    if request.method == 'POST':
-        data = await request.post()
-        res = await app_db.add(Storehouses, **data)
     try:
         res = await app_db.select(Storehouses)
     except Exception as e:
         errors.append(e)
     return {'title': title, 'errors': errors, 'res': res}
+
+async def add_store(request):
+    error, res = '', ''
+    if request.method == 'POST':
+        data = await request.post()
+        print(data)
+    try:
+        res = await app_db.add(model=Storehouses, name = data['name'], adress = data['adress'], city = data['city'], country = data['country'])
+        if res.id and res.id >0:
+            res = res.id
+            logging.info(f'Успешное добавление id {res}')
+    except Exception as e:
+        logging.error(e)
+        error = 'Ошибка добавления'
+    return web.json_response({'res': res, 'error': error})
+    
+
+
 
 async def del_st(request):
     if request.method == 'POST':
@@ -284,6 +295,7 @@ app.add_routes([web.post('/del_man', del_man, name='del_man')])
 app.add_routes([web.post('/update_mn', update_mn, name='update_mn')])
 app.add_routes([web.get('/storehouses', storehouses, name='storehouses')])
 app.add_routes([web.post('/storehouses', storehouses, name='storehouses')])
+app.add_routes([web.post('/add_store', add_store, name='add_store')])
 app.add_routes([web.post('/del_st', del_st, name='del_st')])
 app.add_routes([web.post('/update_st', update_st, name='update_st')])
 app.add_routes([web.get('/sweets_types', sweets_types, name='sweets_types')])

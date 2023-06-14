@@ -62,7 +62,6 @@ class Utils:
             return False
         
     async def utils_sweets(self, data):
-        error, res = '', ''
         try:
             new_data = data.copy()
             new_data['production_date'] = await self.convert_today(data['production_date'])
@@ -72,7 +71,6 @@ class Utils:
             new_data['sweets_types_id'] = int(data['sweets_types_id'])
             new_data['manufacturer_id'] = int(data['manufacturer_id'])
         except Exception as e:
-            e = 'Ошибка в добавлениеи'
             return e
         return new_data
 
@@ -80,3 +78,14 @@ class Utils:
         p = r"^(\\7|8)(\d{3})(\d{7})"
         res = re.search(p, phone)
         return res
+    
+    async def check_man_day(self, data):
+        return data > datetime.date.today()
+    
+    async def check_expir_date(self, data, exsp_date):
+        if exsp_date < data:
+            return True
+        elif exsp_date > datetime.date.today():
+            return True
+        else:
+            return False

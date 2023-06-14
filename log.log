@@ -6475,3 +6475,486 @@ INFO:aiohttp.access:127.0.0.1 [11/Jun/2023:16:57:09 +0000] "GET /static/notify.m
 INFO:aiohttp.access:127.0.0.1 [11/Jun/2023:16:57:09 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
 INFO:aiohttp.access:127.0.0.1 [11/Jun/2023:16:57:09 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
 INFO:aiohttp.access:127.0.0.1 [11/Jun/2023:16:57:11 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:29:30 +0000] "GET / HTTP/1.1" 200 1189 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:29:31 +0000] "GET /sweets HTTP/1.1" 200 22526 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:29:38 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:29:52 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:81
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:29:58 +0000] "POST /update_sw HTTP/1.1" 200 182 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:24 +0000] "GET /sweets HTTP/1.1" 200 22526 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:24 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:24 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:24 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:24 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:26 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:32 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:30:41 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:23 +0000] "GET /sweets HTTP/1.1" 200 22524 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:23 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:23 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:23 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:23 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:25 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:28 +0000] "GET /sweets HTTP/1.1" 200 22524 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:28 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:28 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:28 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:28 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:31:30 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:22 +0000] "GET /sweets HTTP/1.1" 200 22558 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:22 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:22 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:22 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:22 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:24 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:29 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:32 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:33:42 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:07 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:13 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:34 +0000] "GET /sweets HTTP/1.1" 200 22561 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:34 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:34 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:34 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:34 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:36 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:46 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:34:51 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:36:39 +0000] "GET /sweets HTTP/1.1" 200 22561 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:36:39 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:36:39 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:36:39 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:36:39 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:36:41 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:36:50 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:38:09 +0000] "GET /sweets HTTP/1.1" 200 22561 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:38:09 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:38:09 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:38:09 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:38:09 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:38:13 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:02 +0000] "GET /sweets HTTP/1.1" 200 22524 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:02 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:02 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:02 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:02 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:04 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:11 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:23 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:30 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:34 +0000] "GET /sweets HTTP/1.1" 200 22524 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:34 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:34 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:34 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:34 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:36 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:39:47 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:41:21 +0000] "GET /sweets HTTP/1.1" 200 22524 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:41:21 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:41:21 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:41:21 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:41:21 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:41:24 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:44:52 +0000] "GET /sweets HTTP/1.1" 200 22524 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:44:52 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:44:52 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:44:52 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:44:52 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:44:54 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:45:02 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:45:15 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:45:32 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:45:43 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:17:45:47 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:17 +0000] "GET /sweets HTTP/1.1" 200 22526 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:17 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:17 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:17 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:17 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:19 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:28 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:35 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:44 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:01:52 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:02:59 +0000] "GET /sweets HTTP/1.1" 200 22516 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:00 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:00 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:00 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:00 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:01 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:06 +0000] "GET /sweets HTTP/1.1" 200 22516 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:06 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:06 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:06 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:06 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:03:08 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:26 +0000] "GET /sweets HTTP/1.1" 200 22516 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:26 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:26 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:26 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:26 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:28 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:41 +0000] "GET /sweets HTTP/1.1" 200 22516 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:41 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:41 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:41 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:41 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:04:45 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:29 +0000] "GET /sweets HTTP/1.1" 200 22561 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:30 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:30 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:30 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:30 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:31 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:38 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:05:42 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:18 +0000] "GET /sweets HTTP/1.1" 200 22557 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:18 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:18 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:18 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:18 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:20 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:23 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:26 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:06:33 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:81
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:07:23 +0000] "POST /update_sw HTTP/1.1" 200 182 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:25:03 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:25:31 +0000] "POST /update_sw HTTP/1.1" 200 312 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:29:05 +0000] "GET /sweets HTTP/1.1" 200 22492 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:29:12 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:29:12 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:29:12 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:29:12 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:29:18 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:29:28 +0000] "POST /update_sw HTTP/1.1" 200 312 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:42:45 +0000] "GET /sweets HTTP/1.1" 200 22492 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:42:45 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:42:45 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:42:45 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:42:45 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:42:47 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 138, in update_sw
+    if not await utils.check_man_day(new_data['production_date']):
+  File "/home/alex/python/aiohttp/aiohttp/utils.py", line 83, in check_man_day
+    return data > datetime.datetime.now()
+TypeError: can't compare datetime.datetime to datetime.date
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:43:23 +0000] "POST /update_sw HTTP/1.1" 500 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 138, in update_sw
+    if not await utils.check_man_day(new_data['production_date']):
+  File "/home/alex/python/aiohttp/aiohttp/utils.py", line 83, in check_man_day
+    return data > datetime.date.now()
+AttributeError: type object 'datetime.date' has no attribute 'now'
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:44:25 +0000] "POST /update_sw HTTP/1.1" 500 245 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:root:2
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:47:57 +0000] "POST /update_sw HTTP/1.1" 200 181 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:49:38 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:81
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:49:44 +0000] "POST /update_sw HTTP/1.1" 200 182 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:50:36 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:50:38 +0000] "POST /update_sw HTTP/1.1" 200 268 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:18:59:32 +0000] "POST /update_sw HTTP/1.1" 200 268 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:81
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:19:00:33 +0000] "POST /update_sw HTTP/1.1" 200 182 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:19:01:21 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:81
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:19:01:26 +0000] "POST /update_sw HTTP/1.1" 200 182 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:19:01:52 +0000] "GET /sweetsInfo HTTP/1.1" 200 4150 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [12/Jun/2023:19:03:03 +0000] "POST /update_sw HTTP/1.1" 200 324 "http://0.0.0.0:8080/sweets" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:17:37:56 +0000] "GET / HTTP/1.1" 200 1189 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:17:37:56 +0000] "GET /static/notify.min.js HTTP/1.1" 304 178 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:17:37:58 +0000] "GET /storehouses HTTP/1.1" 200 9254 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:15:50 +0000] "GET /storehouses HTTP/1.1" 200 9864 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:15:50 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:15:50 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:15:50 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:15:50 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:17:12 +0000] "GET /storehouses HTTP/1.1" 200 9864 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:17:28 +0000] "GET /storehouses HTTP/1.1" 200 9864 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:17:28 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:17:28 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:17:28 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:17:28 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:19:27 +0000] "GET /storehouses HTTP/1.1" 200 9857 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:19:27 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:19:27 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:19:27 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:19:27 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:21:30 +0000] "GET /storehouses HTTP/1.1" 200 9897 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:21:30 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:21:30 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:21:30 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:21:30 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 9
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 209, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:21:47 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 10
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 209, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:24:38 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:02 +0000] "GET /storehouses HTTP/1.1" 200 11116 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:03 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:03 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:03 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:03 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:11 +0000] "GET /storehouses HTTP/1.1" 200 11116 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:11 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:11 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:11 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:27:11 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 11
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 209, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:28:03 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 12
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 209, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:29:09 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:07 +0000] "GET /storehouses HTTP/1.1" 200 12360 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:07 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:07 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:07 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:07 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:09 +0000] "POST /del_st HTTP/1.1" 200 265 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:10 +0000] "POST /del_st HTTP/1.1" 200 265 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:10 +0000] "POST /del_st HTTP/1.1" 200 265 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:11 +0000] "POST /del_st HTTP/1.1" 200 265 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 13
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 209, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:33:48 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:31 +0000] "GET /storehouses HTTP/1.1" 200 10510 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:37 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:37 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:37 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:37 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:48 +0000] "GET /storehouses HTTP/1.1" 200 10510 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:48 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:48 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:48 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:35:48 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 14
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 209, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:36:01 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:root:Успешное добавление id 15
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 212, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:38:39 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:06 +0000] "GET /storehouses HTTP/1.1" 200 11686 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:06 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:06 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:06 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:06 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:08 +0000] "POST /del_st HTTP/1.1" 200 265 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:09 +0000] "POST /del_st HTTP/1.1" 200 265 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:10 +0000] "POST /del_st HTTP/1.1" 200 265 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:13 +0000] "GET /storehouses HTTP/1.1" 200 9897 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:13 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:13 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:13 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:13 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 16
+ERROR:aiohttp.server:Error handling request
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 433, in _handle_request
+    resp = await request_handler(request)
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_app.py", line 504, in _handle
+    resp = await handler(request)
+  File "/home/alex/python/aiohttp/aiohttp/app.py", line 211, in add_store
+    return web.json_response({'res': res, 'error': error})
+  File "/home/alex/.local/lib/python3.10/site-packages/aiohttp/web_response.py", line 817, in json_response
+    text = dumps(data)
+  File "/usr/lib/python3.10/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Storehouses is not JSON serializable
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:40:30 +0000] "POST /add_store HTTP/1.1" 500 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:45:55 +0000] "GET /storehouses HTTP/1.1" 200 10513 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:45:55 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:45:55 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:45:55 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:45:55 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+ERROR:root:'int' object has no attribute 'id'
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:46:08 +0000] "POST /add_store HTTP/1.1" 200 280 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:49:09 +0000] "GET /storehouses HTTP/1.1" 200 11105 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:49:11 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:49:11 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:49:11 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:49:11 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+ERROR:root:'int' object has no attribute 'id'
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:49:32 +0000] "POST /add_store HTTP/1.1" 200 280 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:50:51 +0000] "GET /storehouses HTTP/1.1" 200 11701 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:50:51 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:50:51 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:50:51 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:50:51 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 19
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:18:51:02 +0000] "POST /add_store HTTP/1.1" 200 182 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:19:08:43 +0000] "GET /storehouses HTTP/1.1" 200 12597 "http://0.0.0.0:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:19:08:43 +0000] "GET /static/jquery-3.6.4.min.js.js HTTP/1.1" 200 245 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:19:08:43 +0000] "GET /static/notify.min.js HTTP/1.1" 200 244 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:19:08:43 +0000] "GET /static/css/main.css HTTP/1.1" 200 235 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:19:08:43 +0000] "GET /favicon.ico HTTP/1.1" 404 173 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
+INFO:root:Успешное добавление id 20
+INFO:aiohttp.access:127.0.0.1 [14/Jun/2023:19:08:57 +0000] "POST /add_store HTTP/1.1" 200 182 "http://0.0.0.0:8080/storehouses" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"
